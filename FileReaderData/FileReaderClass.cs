@@ -23,8 +23,6 @@ namespace FileReaderData
             string[] files = Directory.GetFiles(folderPath, "*.json");
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            //string startupPath = System.IO.Directory.GetCurrentDirectory();
-            //string getfilepath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             string saveDirectoryPath = Path.Combine(_hostingEnvironment.WebRootPath, "convert", "JsonToExcel");
             if (File.Exists(saveDirectoryPath))
             {
