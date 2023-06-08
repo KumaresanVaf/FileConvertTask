@@ -292,6 +292,7 @@ namespace FileReaderData
                                 columnIndex++;
                             }
                             dataRowIndex++;
+
                         }
                         worksheet.Cells.AutoFitColumns();
 
