@@ -167,6 +167,18 @@ namespace FileReaderData
             string fileName = Path.GetFileNameWithoutExtension(file.FileName);
             string fileExtension = Path.GetExtension(file.FileName);
 
+            string UploadsavePath = Path.Combine(_hostingEnvironment.WebRootPath, "convert", "UploadFile");
+            Directory.CreateDirectory(UploadsavePath);
+            string filePath = Path.Combine(UploadsavePath, file.FileName);
+
+            /* string[] uploadFilespath = Directory.GetFiles(UploadsavePath, "*");
+             var convertedFileNames = new List<string>(uploadFilespath.Select(Path.GetFileNameWithoutExtension));*/
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                file.CopyTo(fileStream);
+            }
+
             string convertedFileName;
             string convertedFilePath;
 
