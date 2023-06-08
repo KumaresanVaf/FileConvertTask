@@ -59,9 +59,9 @@ namespace FileReaderData
                                 int headerRowIndex = 1;
                                 int columnIndex = 1;
 
-                                var allKeys = data.SelectMany(dict => dict.Keys).Distinct();//
+                                var allcol = data.SelectMany(dict => dict.Keys).Distinct();//
 
-                                foreach (var key in allKeys)
+                                foreach (var key in allcol)
                                 {
                                     worksheet.Cells[headerRowIndex, columnIndex].Value = key;
                                     columnIndex++;
@@ -71,7 +71,7 @@ namespace FileReaderData
                                 foreach (var dict in data)
                                 {
                                     columnIndex = 1;
-                                    foreach (var key in allKeys)
+                                    foreach (var key in allcol)
                                     {
                                         var value = dict.ContainsKey(key) ? dict[key] : "null";
 
@@ -284,9 +284,9 @@ namespace FileReaderData
                         int headerRowIndex = 1;
                         int columnIndex = 1;
 
-                        var allKeys = data.SelectMany(dict => dict.Keys).Distinct();
+                        var allcol = data.SelectMany(dict => dict.Keys).Distinct();
 
-                        foreach (var key in allKeys)
+                        foreach (var key in allcol)
                         {
                             worksheet.Cells[headerRowIndex, columnIndex].Value = key;
                             columnIndex++;
@@ -296,7 +296,7 @@ namespace FileReaderData
                         foreach (var rowvalue in data)
                         {
                             columnIndex = 1;
-                            foreach (var key in allKeys)
+                            foreach (var key in allcol)
                             {
                                 var value = rowvalue.ContainsKey(key) ? rowvalue[key] : "null";
 
